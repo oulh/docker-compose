@@ -6,7 +6,9 @@ RUN apt-get update && apt-get install -y \
     wget
 
 # 安装code-server
-RUN curl -fsSL https://code-server.dev/install.sh | sh
+COPY ./install.sh .
+RUN chmod +x ./install.sh
+RUN ./install.sh
 
 # 设置code-server启动脚本
 RUN echo "#!/bin/bash \n\
